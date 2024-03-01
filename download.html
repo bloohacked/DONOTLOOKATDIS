@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>
+            Debug window opener
+        </title>
+        <script>
+            var exploitRan = 0;
+            var file = new Blob(["<h1>succsesfuly injected payload into previous page</h1>"], {type: "text/html"}); file.name = "expoit.html";
+            var url = URL.createObjectURL(file);
+            function makepopup(){
+                var popup = open("about:blank", "chromeOS debug window", "popup");
+                popup.document.write("<a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'><button>Remove admin extensions</button><br><button>install windows 11</button></a>");
+            }
+        </script>
+    </head>
+    <body>
+        <h1>
+            Downloaded file
+        </h1>
+        <h2>
+            This file must be downloaded using ctrl + s
+        </h2>
+        <p>now that we have access, all we need for the debug window is to drag a page to your bookmarks and click it on a new tab, if you do not do this on a new tab, it will be unable to inject the payload to the correct page</p>
+        <a href="https://google.com" id="amogus">dis da link</a>
+        <br>
+        <p>once you have done this, just click the button below, if it rickrolls you in any way, that means that you haven't done the steps correctly, this is googles way of stoping people from accsesing this</p>
+        <button onclick="makepopup();">click here for final step</button>
+    </body>
+    <script>
+        document.getElementById("amogus").setAttribute("href", url);
+    </script>
+</html>

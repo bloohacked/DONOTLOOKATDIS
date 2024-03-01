@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <script>
+            function downloadFile(url, fileName) {
+                fetch(url, { method: 'get', mode: 'no-cors', referrerPolicy: 'no-referrer' })
+                .then(res => res.blob())
+                .then(res => {
+                const aElement = document.createElement('a');
+                aElement.setAttribute('download', fileName);
+                const href = URL.createObjectURL(res);
+                aElement.href = href;
+                aElement.setAttribute('target', '_blank');
+                aElement.click();
+                URL.revokeObjectURL(href);
+                });
+            };
+        </script>
+        <title>
+            Debug window opener
+        </title>
+    </head>
+    <body>
+        <h1>
+            Debug window opener
+        </h1>
+        <p>
+            I found a way to open a debug window on chromeOS, this can be used to do crazy things like remove contentkeeper
+        </p>
+        <p>
+            To start, we need to run a quick exploit to gain the right access
+        </p>
+        <button onclick="alert('exploit succsess');">
+            run exploit
+        </button>
+        <p>                 
+            once the exploit is ran, we will need to have you download a file, once the page loads, press ctrl+s
+        </p>
+        <a href="download.html" download="download.html"><button>click to load the download page</button></a>
+        <button onclick="downloadFile('download.html', 'download.html')">iaeoijaw</button>
+        <p>once you downloaded the file, open it in files and continue with the instructions</p>
+    </body>
+</html>
